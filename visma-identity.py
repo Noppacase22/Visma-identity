@@ -13,7 +13,7 @@ def menu():
 
 def runTests():
     # Basic tests to check functionality
-    # No, I have not done 'real' testing before.
+    # No, I have not done "real" testing before.
     # No, I don't know what 'assert' is.
 
     I = Identifier()
@@ -59,7 +59,7 @@ def userTests():
     I = Identifier()
     print("\nThis part lets you test the functionality of the identifier")
     while True:
-        uri = input("Give URI to test, blank exits:")
+        uri = input("Give URI to test, blank exits: ")
         if uri == "":
             break
         print(I.identify(uri))
