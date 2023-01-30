@@ -12,28 +12,27 @@ def menu():
         print("Invalid input. Please choose '1' or '2'.")
 
 def runTests():
-# Basic tests to check functionality
-# No, I have not done 'real' testing before.
-# No, I don't know what 'assert' is.
+    # Basic tests to check functionality
+    # No, I have not done 'real' testing before.
+    # No, I don't know what 'assert' is.
 
     I = Identifier()
     
-    print("Output tests")
+    print("Output tests")       # These should work as intented
     loginUri = "visma-identity://login?source=severa"
     confirmUri = "visma-identity://confirm?source=netvisor&paymentnumber=102226"
     signUri = "visma-identity://sign?source=vismasign&documentid=105ab44"
-
     print(I.identify(loginUri))
     print(I.identify(confirmUri))
     print(I.identify(signUri))
 
-    print("\nURI length tests")
+    print("\nURI length tests") # These should give short URI error
     shortUri1 = "visma-identity://sign?source="
     shortUri2 = "://login?source=severa"
     print(I.identify(shortUri1))
     print(I.identify(shortUri2))
 
-    print("\nScheme tests")
+    print("\nScheme tests")     # These should give wrong scheme error
     wrongScheme1 = "visma-identity:/login?source=severa"
     wrongScheme2 = "twoday-identify://login?source=severa"
     wrongScheme3 = "://confirm?source=netvisor&paymentnumber=102226"
@@ -41,7 +40,7 @@ def runTests():
     print(I.identify(wrongScheme2))
     print(I.identify(wrongScheme3))
 
-    print("\nPath tests")
+    print("\nPath tests")       # These should give wrong path error
     wrongPath1 = "visma-identity://ngis?source=vismasign&documentid=105ab44"
     wrongPath2 = "visma-identity://sig?source=vismasign&documentid=105ab44"
     wrongPath3 = "visma-identity://consign?source=netvisor&paymentnumber=102226"
@@ -49,7 +48,7 @@ def runTests():
     print(I.identify(wrongPath2))
     print(I.identify(wrongPath3))
 
-    print("\nParameter tests")
+    print("\nParameter tests")  # These should give wrong parameters error
     paymentNumberIsString = "visma-identity://confirm?source=netvisor&paymentnumber=23sa26"
     pathHasAnotherPathsParameters = "visma-identity://login?source=netvisor&paymentnumber=102226"
     print(I.identify(paymentNumberIsString))
@@ -73,7 +72,7 @@ def main():
     if choise == 1:
         print("\nRunning pre-written tests\n")
         runTests()
-    else:
+    else:   # Because we expect '1' or '2', we can "be lazy" and get here with else
         print("\nTesting your inputs")
         userTests()
 
@@ -82,3 +81,5 @@ def main():
     return None
 
 main()
+
+# eof
