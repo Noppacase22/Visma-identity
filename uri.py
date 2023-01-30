@@ -88,5 +88,5 @@ class URI:
     def getParameters(self):
         s = ""
         for parameter in self.parameters:
-            s += parameter
+            s += str(parameter)
         return s
